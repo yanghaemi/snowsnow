@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>birthday</title>
+        
+    </head>
+    <body>
+        <h1>생일 출력하기</h1>
+        <h4>0.박정현, 1.복무창, 2.오민석, 3.한규원, 4.김도영, 5.김준호, 6.문희범</h4>
+        <input type="text"><a>번호를 입력하시오</a>
+        <input type="submit">
+        <p></p>
+        <script
+            src="https://code.jquery.com/jquery-3.6.3.js"
+            integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+            crossorigin="anonymous">
+        </script>
+        <script>
+            $.ajax({
+                method: "GET",
+                url: "https://dapi.kakao.com/v3/search/book?target=title",
+                data: {query: "미움 받을 용기"},
+                headers: {Authorization: "KakaoAK f3a6f0fd695af5d85843e288bb738d42"}
+            })
+            .done(function (msg) {
+                console.log(msg.documents[0].title);
+                console.log(msg.documents[0].thumbnail);
+                $( "p" ).append( "<strong>"+msg.documents[0].title+"</strong>" );
+                $( "p" ).append( "<img src='"+msg.documents[0].thumbnail+"'/>" );
+            });
+        </script>
+    </body>
+</html>
