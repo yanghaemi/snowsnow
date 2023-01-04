@@ -1,0 +1,17 @@
+<html>
+    <body>
+    <a>클릭</a>
+    <div id = "munggg"></div>
+    </body>
+</html>
+<script>
+    const a = document.querySelector('a');
+    a.addEventListener('click', showConsole);
+    function showConsole(){
+        console.log("콘솔로그 실행");
+        const mung=document.createElement("div");
+        mung.textContent = "무웅무웅";
+        const munggg = document.getElementById("munggg");
+        munggg.appendChild(mung);
+    }
+</script>

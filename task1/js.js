@@ -34,11 +34,11 @@ function input(){
     }
     var address = "https://my-json-server.typicode.com/smashh712/json_placeholder/members/"+num;
     fetch(address)
-        .then((response) => response.json())
+        .then((response) => response.json())     //json으로 바꾸기
         .then((data) => {
             console.log(data);
             const birthday = document.createElement("div");
-            birthday.textContent = "생일은 "+data.birth.substr(0,2)+"년"+data.birth.substr(2,2)+"월"+data.birth.substr(4,2)+"일"+"입니다";
+            birthday.textContent = data.name.substr(0,3)+"님의 "+"생일은 "+data.birth.substr(0,2)+"년"+data.birth.substr(2,2)+"월"+data.birth.substr(4,2)+"일"+"입니다";
             const userInfo = document.getElementById("userInfo");
             userInfo.appendChild(birthday);
         })
